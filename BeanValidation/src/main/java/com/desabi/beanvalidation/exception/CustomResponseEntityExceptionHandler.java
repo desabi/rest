@@ -24,7 +24,7 @@ public class CustomResponseEntityExceptionHandler extends ResponseEntityExceptio
 
     @Override
     protected ResponseEntity<Object> handleHttpMessageNotReadable(HttpMessageNotReadableException ex, HttpHeaders headers, HttpStatus status, WebRequest request) {
-        log.info("Mensaje no readable.");
+        log.error("Mensaje no readable.");
         return super.handleHttpMessageNotReadable(ex, headers, status, request);
     }
 
@@ -39,8 +39,8 @@ public class CustomResponseEntityExceptionHandler extends ResponseEntityExceptio
                 .collect(Collectors.toList());
 
         body.put("errores", errors);
-        body.put("status", status.value());
-        body.put("timestamp", new Date());
+        //body.put("status", status.value());
+        //body.put("timestamp", new Date());
 
         log.error("body: {}", body);
 
