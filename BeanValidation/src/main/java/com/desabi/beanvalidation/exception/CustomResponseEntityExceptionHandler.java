@@ -46,4 +46,7 @@ public class CustomResponseEntityExceptionHandler extends ResponseEntityExceptio
 
         return new ResponseEntity<>("Errores en datos de entrada", headers, status);
     }
+
+
+
 }
