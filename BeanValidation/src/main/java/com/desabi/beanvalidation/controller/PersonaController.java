@@ -17,7 +17,7 @@ public class PersonaController {
 
     @GetMapping("")
     public ResponseEntity<String> index() {
-        String mensaje = "Página de inicio";
+        String mensaje = "Personas: página de inicio";
         return new ResponseEntity<>(mensaje, HttpStatus.OK);
     }
 
@@ -30,7 +30,6 @@ public class PersonaController {
         * */
         log.info("PersonaRequest: {}", personaRequest);
         return new ResponseEntity<>("Validacion OK", HttpStatus.OK);
-
     }
 
 }
