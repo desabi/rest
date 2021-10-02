@@ -3,10 +3,11 @@ package com.abi.resttemplate.model;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.http.ResponseEntity;
 
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
 public class Person {
 
     private int id;
@@ -19,5 +20,8 @@ public class Person {
         this.name = person.getName();
         this.age = person.getAge();
         this.height = person.getHeight();
+    }
+
+    public Person(ResponseEntity<Person[]> responseEntity) {
     }
 }

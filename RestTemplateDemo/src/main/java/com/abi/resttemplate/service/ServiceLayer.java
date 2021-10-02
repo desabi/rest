@@ -15,7 +15,9 @@ import org.springframework.web.client.RestTemplate;
 
 import javax.xml.ws.Response;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class ServiceLayer {
@@ -38,15 +40,13 @@ public class ServiceLayer {
 
     public void readPersons() {
         String urlRead = url + "/read";
-        log.info("urlRead: {}", urlRead);
 
-        ResponseEntity<Person[]> response = restTemplate.getForEntity(urlRead, Person[].class);
-        Person[] personsList = response.getBody();
-        // solo devuelve un resultado
-        log.info("Respuesta 1 de readPersons: {}", personsList);
+        List<ResponseEntity<Person[]>> responseEntities = Arrays.asList(restTemplate.getForEntity(urlRead, Person[].class));
+        //List<Person> collect = responseEntities.stream().map(Person::new).collect(Collectors.toList());
+        //log.info("Respuesta 1 de readPersons: {}", collect);
 
-        Person[] personsArray = restTemplate.getForObject(urlRead, Person[].class);
-        log.info("Respuesta 2 de readPErsons: {}", personsArray);
+        List<Person> personList = Arrays.asList(restTemplate.getForObject(urlRead, Person[].class));
+        log.info("Respuesta 2 de readPErsons: {}", personList);
 
         //PersonList personsList = restTemplate.getForObject(urlRead, PersonList.class);
 
