@@ -23,7 +23,7 @@ public class PersonController {
     @Autowired
     PersonService service;
 
-    @GetMapping("/")
+    @GetMapping("")
     public ResponseEntity<String> index() {
         String message = "Pagina de inicio";
         ResponseEntity<String> responseEntity = new ResponseEntity<>(message, HttpStatus.OK);
