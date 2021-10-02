@@ -1,5 +1,6 @@
 package com.abi.resttemplate.controller;
 
+
 import com.abi.resttemplate.model.Person;
 import com.abi.resttemplate.service.ServiceLayer;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -31,14 +32,23 @@ public class RestTemplateController {
         serviceLayer.home();
     }
 
-    @GetMapping("/read/{id}")
-    public void readPerson(@PathVariable("id") Integer id){
-        serviceLayer.readPerson(id);
-    }
-
     @PostMapping("/create")
     public void createPerson(@RequestBody Person person) {
         serviceLayer.createPerson(person);
     }
 
+    @GetMapping("/read")
+    public void readPersons() {
+        serviceLayer.readPersons();
+    }
+
+    @GetMapping("/read/{id}")
+    public void readPerson(@PathVariable("id") Integer id){
+        serviceLayer.readPerson(id);
+    }
+
+    @PutMapping("/update")
+    public void updatePerson(@RequestBody Person person) {
+        serviceLayer.updatePerson(person);
+    }
 }
