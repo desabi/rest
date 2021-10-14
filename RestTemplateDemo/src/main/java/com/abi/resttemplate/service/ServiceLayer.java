@@ -42,9 +42,11 @@ public class ServiceLayer {
         String urlRead = url + "/read";
 
         List<ResponseEntity<Person[]>> responseEntities = Arrays.asList(restTemplate.getForEntity(urlRead, Person[].class));
+        // solo devuelve un resultado: [Person(id=0, name=null, age=0, height=0.0)]
         //List<Person> collect = responseEntities.stream().map(Person::new).collect(Collectors.toList());
         //log.info("Respuesta 1 de readPersons: {}", collect);
 
+        // devuelve todos los registros
         List<Person> personList = Arrays.asList(restTemplate.getForObject(urlRead, Person[].class));
         log.info("Respuesta 2 de readPErsons: {}", personList);
 
