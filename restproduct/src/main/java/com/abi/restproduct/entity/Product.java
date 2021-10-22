@@ -23,6 +23,8 @@ public class Product {
     private Double price;
     private Integer quantity;
 
+    // para create y update
+    // asignar el objeto dto a objeto entity
     public Product(ProductRequest productRequest){
         this.id = productRequest.getId();
         this.name = productRequest.getName();

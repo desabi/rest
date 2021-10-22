@@ -11,16 +11,16 @@ public class ProductRequest {
 
     private Integer id;
 
-    @NotNull(message = "El nombre no puede quedar vacío")
-    @NotBlank(message = "El nombre no puede quedar en blanco")
+    @NotNull(message = "{product.name.notnull}")
+    @NotBlank(message = "{product.name.notblank}")
     private String name;
 
     @NotNull(message = "La descripción no puede quedar vacía")
     @NotBlank(message = "La descripcion no puede quedar en blanco")
     private String description;
 
-    @NotNull(message = "El precio no puede quedar vacío")
-    @Positive(message = "El precio debe ser positivo")
+    @NotNull(message = "{product.price.notnull}")
+    @Positive(message = "{product.price.positive}")
     private Double price;
 
     @NotNull(message = "La cantidad no puede quedar vacía")

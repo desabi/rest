@@ -49,7 +49,7 @@ public class CustomExceptionHandler extends ResponseEntityExceptionHandler {
         body.put("timestamp", new Date());
 
         ResponseEntity responseEntity = new ResponseEntity<>(body, headers, status);
-        log.info("ResponseEntity: " + responseEntity);
+        log.info("Errores: " + errors);
         return responseEntity;
     }
 }
