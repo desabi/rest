@@ -7,6 +7,8 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
@@ -24,8 +26,13 @@ public class ServiceLayer {
 
     private static final Logger log = LoggerFactory.getLogger(ServiceLayer.class);
 
-    RestTemplate restTemplate = new RestTemplate();
-    String url = "http://localhost:8090/person";
+    //RestTemplate restTemplate = new RestTemplate();
+    //String url = "http://localhost:8090/person";
+
+    // ribbon
+    @Autowired
+    private RestTemplate restTemplate;
+    String url = "http://rest-person/person";
 
     public void home() {
         ResponseEntity<String> homeResponse = restTemplate.getForEntity(url, String.class);
