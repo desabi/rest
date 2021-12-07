@@ -3,6 +3,7 @@ package com.desabi.beanvalidation.dto;
 import lombok.Data;
 
 import javax.validation.constraints.*;
+import java.util.List;
 
 @Data
 public class PersonaRequest {
@@ -23,4 +24,8 @@ public class PersonaRequest {
 
     @Email
     private String correo;
+
+    @NotNull(message = "{persona.numeros.null}")
+    //@Positive(message = "{persona.numeros.positivo}") validar que sean positivos?
+    private List<Integer> numeros;
 }

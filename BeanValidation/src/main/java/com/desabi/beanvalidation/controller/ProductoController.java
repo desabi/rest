@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 
 @RestController
-@RequestMapping("/productos")
+@RequestMapping("/producto")
 public class ProductoController {
 
     private static final Logger log = LoggerFactory.getLogger(ProductoController.class);
