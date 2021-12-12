@@ -14,7 +14,7 @@ import javax.validation.Valid;
 import java.util.List;
 
 @RestController
-@RequestMapping("/product")
+@RequestMapping("/products")
 public class ProductController {
 
     private static final Logger log = LoggerFactory.getLogger(ProductController.class);
@@ -29,31 +29,32 @@ public class ProductController {
         return new ResponseEntity<>(message, HttpStatus.OK);
     }
 
-    @PostMapping("/create")
-    public ResponseEntity<Product> create(@Valid @RequestBody ProductRequest productRequest) {
-        Product product = productService.create(productRequest);
-        return new ResponseEntity<>(product, HttpStatus.OK);
-    }
-
-    @GetMapping("/read")
+    @GetMapping("")
     public ResponseEntity<List<Product>> read(){
         List<Product> productList = productService.read();
         return new ResponseEntity<>(productList, HttpStatus.OK);
     }
 
-    @GetMapping("/read/{id}")
+    @PostMapping("")
+    public ResponseEntity<Product> create(@Valid @RequestBody ProductRequest productRequest) {
+        Product product = productService.create(productRequest);
+        return new ResponseEntity<>(product, HttpStatus.OK);
+    }
+
+    @GetMapping("/{id}")
     public ResponseEntity<Product> read(@PathVariable("id") Integer id){
         Product productReaded = productService.read(id);
         return new ResponseEntity<>(productReaded, HttpStatus.OK);
     }
 
-    @PutMapping("/update")
+    // se recomienda poner el {id}
+    @PutMapping("/")
     public ResponseEntity<Product> update(@Valid @RequestBody ProductRequest productRequest){
         Product productUpdated = productService.update(productRequest);
         return new ResponseEntity<>(productUpdated, HttpStatus.OK);
     }
 
-    @DeleteMapping("/delete/{id}")
+    @DeleteMapping("/{id}")
     public ResponseEntity<HttpStatus> delete(@PathVariable("id") Integer id) {
         productService.delete(id);
         return new ResponseEntity<>(HttpStatus.OK);
