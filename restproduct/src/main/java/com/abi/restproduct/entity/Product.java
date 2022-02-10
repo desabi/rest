@@ -1,6 +1,7 @@
 package com.abi.restproduct.entity;
 
 import com.abi.restproduct.model.ProductRequest;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -8,10 +9,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import java.security.PublicKey;
 
 @Entity
 @Data
+@AllArgsConstructor
 @NoArgsConstructor // para create
 public class Product {
 

@@ -26,4 +26,11 @@ public class ProductRequest {
     @NotNull(message = "La cantidad no puede quedar vacía")
     @Positive(message = "La cantidad debe ser positiva")
     private Integer quantity;
+
+    public ProductRequest(String name, String description, double price, int quantity) {
+        this.name = name;
+        this.description = description;
+        this.price = price;
+        this.quantity = quantity;
+    }
 }

@@ -29,9 +29,8 @@ public class CustomExceptionHandler extends ResponseEntityExceptionHandler {
         body.put("message", ex.getMessage());
         body.put("timestamp", new Date());
 
-        ResponseEntity responseEntity = new ResponseEntity<>(body, headers, status);
+        return new ResponseEntity<>(body, headers, status);
 
-        return responseEntity;
     }
 
     @Override
@@ -49,7 +48,7 @@ public class CustomExceptionHandler extends ResponseEntityExceptionHandler {
         body.put("timestamp", new Date());
 
         ResponseEntity responseEntity = new ResponseEntity<>(body, headers, status);
-        log.info("Errores: " + errors);
+        log.info("Errores: {} ", errors);
         return responseEntity;
     }
 }
